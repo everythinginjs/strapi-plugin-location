@@ -1,0 +1,30 @@
+{
+  "name": "strapi-plugin-location",
+  "version": "0.0.0",
+  "description": "An Strapi custom field for location.",
+  "strapi": {
+    "name": "strapi-plugin-location",
+    "description": "An Strapi custom field for location.",
+    "kind": "plugin",
+    "displayName": "Strapi Custom Field Location"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": "^4.4.0"
+  },
+  "dependencies": {},
+  "author": {
+    "name": "Amir Mahmoudi",
+    "email": "Amixengineer@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "Amir Mahmoudi",
+      "email": "Amixengineer@gmail.com"
+    }
+  ],
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
