@@ -1,8 +1,9 @@
-import { prefixPluginTranslations } from '@strapi/helper-plugin';
-import pluginPkg from '../../package.json';
-import pluginId from './pluginId';
-import Initializer from './components/Initializer';
-import PluginIcon from './components/PluginIcon';
+import { prefixPluginTranslations } from "@strapi/helper-plugin";
+import pluginPkg from "../../package.json";
+import pluginId from "./pluginId";
+import Initializer from "./components/Initializer";
+import PluginIcon from "./components/PluginIcon";
+import getTrad from "../../../strapi-plugin-location/admin/src/utils/getTrad";
 
 const name = pluginPkg.strapi.name;
 
@@ -16,7 +17,9 @@ export default {
         defaultMessage: name,
       },
       Component: async () => {
-        const component = await import(/* webpackChunkName: "[request]" */ './pages/App');
+        const component = await import(
+          /* webpackChunkName: "[request]" */ "./pages/App"
+        );
 
         return component;
       },
@@ -33,6 +36,27 @@ export default {
       initializer: Initializer,
       isReady: false,
       name,
+    });
+    app.customFields.register({
+      name: "location",
+      pluginId: "strapi-plugin-location",
+      type: "json",
+      intlLabel: {
+        id: getTrad("label"),
+        defaultMessage: "Location",
+      },
+      intlDescription: {
+        id: getTrad("description"),
+        defaultMessage: "Choose any location",
+      },
+      icon: PluginIcon,
+      components: {
+        Input: async () =>
+          import(
+            /* webpackChunkName: 'location-input-component' */ "./components/Location"
+          ),
+      },
+      options: {},
     });
   },
 
